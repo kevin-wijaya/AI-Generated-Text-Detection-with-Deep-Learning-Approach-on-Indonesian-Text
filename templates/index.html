@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mytheme">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Detection</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='img/icon.png')}}">
+</head>
+<body>
+
+    <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content text-center">
+            <div class="max-w-5xl">
+                <!-- content -->
+                <h1 class="text-5xl font-bold">AI-Generated Text Detection<br>with Deep Learning Approach</h1>
+                <p class="pt-3 pb-4 text-lg">This AI Detector focus on Indonesian Text</p>
+                <div class="flex justify-between mb-3">
+                    <div class="flex justify-start">
+                        <button class="btn btn-sm btn-outline mr-2 capitalize text-lg h-10" onclick="show('GPT3')">GPT-3</button>
+                        <button class="btn btn-sm btn-outline mr-2 capitalize text-lg h-10" onclick="show('CHATGPT')">ChatGPT</button>
+                        <button class="btn btn-sm btn-outline mr-2 capitalize text-lg h-10" onclick="show('HUMAN')">Human</button>
+                    </div>
+     
+                    <div class="flex justify-end">
+                        <div class="dropdown dropdown-start max-w-40">
+                            <label tabindex="0" class="btn btn-outline btn-sm ml-2 w-40 capitalize text-lg h-10 
+                            font-bold flex justify-between" id="label-model">IndoBERT<i class="fa-solid fa-caret-down"></i></label>
+                            <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-base-300 rounded-box w-44 mt-2">
+                              <li class="m-active"><a class="font-bold" onclick="model(this, 'IndoBERT')">IndoBERT</a></li>
+                              <li><a class="font-bold" onclick="model(this, 'Bi-LSTM')">Bi-LSTM</a></li>
+                              <li><a class="font-bold" onclick="model(this, 'Bi-GRU')">Bi-GRU</a></li>
+                              <li><a class="font-bold" onclick="model(this, 'LSTM')">LSTM</a></li>
+                              <li><a class="font-bold" onclick="model(this, 'GRU')">GRU</a></li>
+                            </ul>
+                            <input type="hidden" id="use-model" value="IndoBERT">
+                        </div>
+    
+                        <button class="btn btn-outline font-bold btn-secondary btn-sm ml-2 w-20 c
+                        apitalize text-lg h-10" onclick="show()"><i class="fa-solid fa-trash"></i></i></button>
+                    </div>
+                </div>
+                <textarea id="text" class="textarea textarea-primary w-full mb-3 h-48 text-lg" placeholder="Insert text here.."></textarea>
+                <button id="button" class="btn btn-primary w-full capitalize mb-3 text-xl font-bold" onclick="check()">Detect</button>
+                
+                <!-- output -->
+                <div id="output" class="mb-3">
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function model(e, model) {
+            $('.m-active').removeClass('m-active');
+            $(e).parent().addClass('m-active');
+            $('#label-model').html(model + '<i class="fa-solid fa-caret-down"></i>');
+            $('#use-model').val(model);
+        }
+
+        function show(ex) {
+            var text = ''
+            var gpt3 =  'Pengembangan blockchain dimaksudkan untuk meningkatkan efektivitas, efisiensi, hemat, keamanan, dan keandalan dalam melakukan berbagai transaksi dalam skala besar. Ini bertujuan untuk menciptakan sistem yang lebih efektif dan aman.'
+            var chatgpt = 'Convolutional layer adalah komponen utama dalam arsitektur Convolutional Neural Network (CNN), yang digunakan untuk memproses data yang memiliki struktur grid seperti gambar. Convolutional layer melakukan operasi konvolusi pada input untuk mengekstraksi fitur-fitur yang penting.'
+            var human =   'Belum ada kajian ilmiah yang membenarkan ini, hanya dapat dijadikan sebagai analogi saja. Artinya telepati hanya analogi dari belitan kuantum entanglement. Tetapi bukan berarti telepati adalah entanglement, belum ada bukti.'
+            switch (ex) {
+            case 'GPT3':     text = gpt3    ;break;
+            case 'CHATGPT':  text = chatgpt ;break;
+            case 'HUMAN':    text = human   ;break;
+            default:         text = ''      ;$('#output').html('');break;
+            }
+            $('#text').val(text);
+        }
+
+        function check() {
+            if($('#text').val() != '') {
+                process()
+            }
+            else {
+                $('#output').html(
+                        '<div class="alert border-white">' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-warning shrink-0 w-6 h-6">'+
+                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"'+
+                        'd="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'+ 
+                        '<span class="font-bold">Please enter the text before <span class="text-warning">starting the detection</span></span>'+
+                        '</div>'
+                    )
+            }
+        }
+
+        function process() {
+            //set loading
+            $('#button').html('<span class="loading loading-dots loading-md"></span>Loading')
+            $('#output').html('')
+            //request
+            $.post("/process", { 
+                text: $('#text').val(),
+                model: $('#use-model').val()
+            }).done(function(response) {
+                //ai:1, human:0
+                if(response=='0') {
+                    $('#output').html(
+                        '<div class="alert border-white">' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" class="stroke-success shrink-0 h-6 w-6"'+ 
+                        'fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"'+
+                        'd="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>'+
+                        '<span class="font-bold">Your text detected as <span class="text-success">Human-Written</span></span>'+
+                        '</div>'
+                    )
+                }
+                else{
+                        $('#output').html(
+                        '<div class="alert border-white">' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" class="stroke-secondary shrink-0 h-6 w-6"'+ 
+                        'fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"'+
+                        'd="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>'+
+                        '<span class="font-bold">Your text detected as <span class="text-secondary">AI-Generated</span></span>'+
+                        '</div>'
+                    )
+                }
+                $('#button').html('Detect')
+            })
+        }
+    </script>
+</body>
+
+</html>

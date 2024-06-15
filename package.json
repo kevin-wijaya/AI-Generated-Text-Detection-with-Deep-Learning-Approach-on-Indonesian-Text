@@ -1,0 +1,18 @@
+{
+  "name": "ai-generated-text-detection-with-deep-learning-approach-on-indonesian-text",
+  "version": "1.0.0",
+  "description": "A simple web application that can be used to detect AI-generated text in the Indonesian language",
+  "keywords": ["AI-Generated", "ChatGPT", "Text", "Natural Language Processing", "Deep Learning"],
+  "author": "Kevin Wijaya",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "css:watch": "npx tailwindcss -i ./static/src/input.css -o ./static/dist/css/output.css --watch"
+  },
+  "devDependencies": {
+    "daisyui": "^3.2.1",
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "flowbite": "^1.7.0"
+  }
+}
