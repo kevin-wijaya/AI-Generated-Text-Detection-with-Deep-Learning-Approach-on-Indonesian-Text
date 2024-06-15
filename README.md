@@ -1,6 +1,5 @@
 # AI Generated Text Detection with Deep Learning Approach on Indonesian Text
-<img src="research/methodology.png" style="background-color: white; padding: 10px; border-radius: 15px;"/>
-
+![methodology](research/methodology.png)
 
 ## Table of Contents
 + [About](#about)
