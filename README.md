@@ -31,7 +31,7 @@ Install prerequisite python packages
 ```
 pip install -r requirements.txt
 ```
-Install the IndoBERT pretrained model from Hugging Face. Please wait, as the model is large and may take several minutes to download. :)
+Install the IndoBERT pretrained model from Hugging Face. Please wait, as the model is large and may take several minutes to download :)
 ```
 git lfs install && git clone https://huggingface.co/indolem/indobert-base-uncased ./models/indolem/indobert-base-uncased
 ```
@@ -175,7 +175,7 @@ Below is a table showing the evaluation metrics from the experiments conducted:
 
 
 ## Screenshots <a name = "screenshots"></a>
-Here are some screenshots of the application in action:
+Here are some screenshots of the application:
 
 ### Initial Screen
 ![initial-screen](.screenshots/initial.png)
@@ -194,7 +194,5 @@ Here are some screenshots of the application in action:
 ![models-option](.screenshots/detected-as-human-text.png)
 #### Sample 2
 ![models-option](.screenshots/detected-as-human-text2.png)
-
-
 
 ##
