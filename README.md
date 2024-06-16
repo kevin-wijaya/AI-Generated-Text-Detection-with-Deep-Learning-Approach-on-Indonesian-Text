@@ -14,14 +14,17 @@ Artificial intelligence (AI) has become a popular popular technology that is now
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will guide you through installing the project on your local machine for testing purposes
+These instructions will guide you through installing the project on your local machine for testing purposes. (Note: This repository contains large file storage, so please be patient as processing may take several minutes)
 
 ### Installing Project
 
-Clone this repository and change directory
+Clone this repository
 ```
 git clone https://github.com/kevin-wijaya/AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text.git
-cd AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text
+```
+Rename the folder and change directory into it
+```
+mv AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text ai-generated-text-detection && cd ai-generated-text-detection
 ```
 Initialize and enable the python environment to ensure isolation (Optional)
 ```
@@ -31,18 +34,18 @@ Install prerequisite python packages
 ```
 pip install -r requirements.txt
 ```
-Install the IndoBERT pretrained model from Hugging Face. Please wait, as the model is large and may take several minutes to download :)
+Install the IndoBERT pretrained model from Hugging Face
 ```
 git lfs install && git clone https://huggingface.co/indolem/indobert-base-uncased ./models/indolem/indobert-base-uncased
 ```
-Run the python app.py and enjoy :v
+Run the python app.py and enjoy 😁
 ```
 python app.py
 ```
 
 ## Usage <a name = "usage"></a>
 
-To use this web application, follow these steps:
+To use this web application is easy, follow these 3 steps:
 
 1. **Insert Text**: Enter your text into the textarea provided.
 2. **Detect**: Click on the "Detect" button to process the text and obtain results.
