@@ -1,0 +1,8 @@
+models/doc2vec/Doc2Vec.d2v
+models/doc2vec/Doc2Vec.d2v.syn1neg.npy
+models/doc2vec/Doc2Vec.d2v.wv.vectors.npy
+models/predict/BI_GRU.h5
+models/predict/BI_LSTM.h5
+models/predict/GRU.h5
+models/predict/IndoBERT.model
+models/predict/LSTM.h5
