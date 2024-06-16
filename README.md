@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ```
 Install the necessary LFS model
 ```
-gdown --folder 1Wqxw-4r_naeecy_7aVjsGkpryRNiXExm -O ./models/ && git lfs install && git clone https://huggingface.co/indolem/indobert-base-uncased ./models/indolem/indobert-base-uncased
+gdown --folder 19fi_oNv42G5n27bO-W1f03PDPYckjgPX -O ./models/ && git lfs install && git clone https://huggingface.co/indolem/indobert-base-uncased ./models/indolem/indobert-base-uncased
 ```
 Run the python app.py and enjoy 😁
 ```
