@@ -2,3 +2,5 @@ node_modules
 .venv
 package-lock.json
 models/indolem/indobert-base-uncased
+models/doc2vec
+models/predict
