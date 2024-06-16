@@ -18,9 +18,10 @@ These instructions will guide you through installing the project on your local m
 
 ### Installing Project
 
-Clone this repository
+Clone this repository and change directory
 ```
 git clone https://github.com/kevin-wijaya/AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text.git
+cd AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text
 ```
 Initialize and enable the python environment to ensure isolation (Optional)
 ```
