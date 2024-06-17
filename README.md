@@ -14,7 +14,7 @@ Artificial intelligence (AI) has become a popular technology that is now widely 
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will guide you through installing the project on your local machine for testing purposes. (Note: This repository contains large file storage, so please be patient as processing may take several minutes)
+These instructions will guide you through installing the project on your local machine for testing purposes. (Note: This project contains large file storage, so please be patient as processing may take several minutes)
 
 ### Requirements
 
@@ -28,7 +28,7 @@ git clone https://github.com/kevin-wijaya/AI-Generated-Text-Detection-with-Deep-
 ```
 Rename the folder and change directory into it
 ```
-mv AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text ai-generated-text-detection && cd ai-generated-text-detection
+mv AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text ai-text-detection && cd ai-text-detection
 ```
 Initialize and enable the python environment to ensure isolation (Optional)
 ```
