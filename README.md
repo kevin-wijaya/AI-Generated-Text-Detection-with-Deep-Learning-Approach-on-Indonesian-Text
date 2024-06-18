@@ -30,7 +30,7 @@ Rename the folder and change directory into it
 ```
 mv AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text ai-text-detection && cd ai-text-detection
 ```
-Initialize the python environment to ensure isolation (Optional)
+Initialize the python environment to ensure isolation
 ```
 python -m venv .venv
 ```
