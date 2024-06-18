@@ -30,21 +30,21 @@ Rename the folder and change directory into it
 ```
 mv AI-Generated-Text-Detection-with-Deep-Learning-Approach-on-Indonesian-Text ai-text-detection && cd ai-text-detection
 ```
-Initialize and enable the python environment to ensure isolation (Optional)
+Initialize the python environment to ensure isolation (Optional)
 ```
-python -m venv .venv && source .venv/scripts/activate
+python -m venv .venv
 ```
 Install prerequisite python packages
 ```
-pip install -r requirements.txt
+python run.py pip install -r requirements.txt
 ```
 Install the necessary LFS model
 ```
 gdown --folder 19fi_oNv42G5n27bO-W1f03PDPYckjgPX -O ./models/ && git lfs install && git clone https://huggingface.co/indolem/indobert-base-uncased ./models/indolem/indobert-base-uncased
 ```
-Run the python app.py and enjoy 😁
+Run the python app.py using run.py and enjoy 😁
 ```
-python app.py
+python run.py app
 ```
 
 ## Usage <a name = "usage"></a>
