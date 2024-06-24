@@ -11,7 +11,7 @@
 + [Reports](#reports)
 + [Screenshots](#screenshots)
 + [Author](#author)
-+ [license](#license)
++ [license](LICENSE)
 
 ## About <a name = "about"></a>
 
